@@ -227,6 +227,13 @@ class Pygtail(object):
             candidates.sort()
             return candidates[-1]  # return most recent
 
+        # dateext rotation without delaycompress
+        candidates = glob.glob("%s-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].gz" % self.filename)
+        if candidates:
+            candidates.sort()
+            return candidates[-1]  # return most recent
+
+
         # for TimedRotatingFileHandler
         candidates = glob.glob("%s.[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]" % self.filename)
         if candidates:
